@@ -1,6 +1,7 @@
 import numpy
 from math import sqrt
 import random
+import matplotlib.pyplot as plt
 
 EPS = 1e-1
 
@@ -18,6 +19,10 @@ def buildVectorZ(x, y):
     ]
 
 
+def infNorm(vector):
+    return max(vector)
+
+
 def firstNorm(vector):
     res = 0
     for elem in vector:
@@ -32,7 +37,14 @@ def secondNorm(vector):
     return sqrt(res)
 
 
-# TO DO
+def task1():
+    x = numpy.linspace(-10, 10)
+    plt.figure()
+    plt.plot(x, numpy.sin(x), label="sin(x)")
+    plt.plot(x, numpy.cos(x), label="cos(x)")
+    plt.legend()
+
+
 # Function to calculate weighted norm
 # In: vector, weight's vector
 # Return: weighted norm
@@ -82,19 +94,42 @@ def task4():
 
     weight = generateWeight(len(x))
     print("Weight for norm", weight)
+    print("x vector's inf norm: ", infNorm(x))
     print("x vector's first norm: ", firstNorm(x))
     print("x vector's second norm: ", secondNorm(x))
     print("x vector's weight norm: ", weightedNorm(x, weight))
 
+    print("y vector's inf norm: ", infNorm(y))
     print("y vector's first norm: ", firstNorm(y))
     print("y vector's second norm: ", secondNorm(y))
     print("y vector's weight norm: ", weightedNorm(y, weight))
 
     weight = generateWeight(len(z))
     print("Weight for norm", weight)
+    print("z vector's inf norm: ", infNorm(z))
     print("z vector's first norm: ", firstNorm(z))
     print("z vector's second norm: ", secondNorm(z))
     print("z vector's weight norm: ", weightedNorm(z, weight))
+
+
+def task5():
+    print("task 5")
+
+    matrix = numpy.arange(1, 101).reshape(10, 10)
+    print("matrix A: ", matrix)
+
+    sum_cols = numpy.sum(matrix, axis=0)
+    print("sums of cols: ", sum_cols)
+
+    sum_rows = numpy.sum(matrix, axis=1)
+    print("sums of rows: ", sum_rows)
+
+    print("matrix A * sums of cols: ", matrix.dot(sum_cols))
+    print("matrix A * sums of rows: ", matrix.dot(sum_rows))
+
+    print("matrix B: ", matrix[5:10, 5:10])
+
+    print()
 
 
 def task6():
@@ -122,8 +157,11 @@ def task7():
 
 
 if __name__ == "__main__":
+    task1()
     task2()
     task3()
     task4()
+    task5()
     task6()
     task7()
+    plt.show()

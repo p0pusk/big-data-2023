@@ -93,13 +93,12 @@ def checkKandell(sample, trend):
 
 if __name__ == "__main__":
     # Task 1
-    print("Task 1: \n")
     sample = generateSample()
-    print(sample)
-    plt.figure()
-    plt.title("Task 1")
-    plt.plot(sample, "o", color="black", label="sample")
-    plt.legend()
+    # print(sample)
+    # plt.figure()
+    # plt.title("Task 1")
+    # plt.plot(sample, "o", color="magenta", label="sample")
+    # plt.legend()
 
     # Task 2
     print("Task 2: \n")
@@ -109,7 +108,7 @@ if __name__ == "__main__":
     slide55 = slideMean(sample, 55)
     plt.figure()
     plt.title("Task 2")
-    plt.plot(sample, "o", color="black", label="sample")
+    plt.plot(sample, "o", color="gray", label="sample")
     plt.plot(model, label="model")
     plt.plot(slide10, label="Slide mean, m = 10")
     plt.plot(slide25, label="Slide mean, m = 25")
@@ -118,17 +117,17 @@ if __name__ == "__main__":
 
     # Task 3
     print("Task 3: \n")
-    slideMed10 = slideMedian(sample, 10)
-    print(slide10)
-    slideMed25 = slideMedian(sample, 25)
-    slideMed55 = slideMedian(sample, 55)
+    slideMed21 = slideMedian(sample, 21)
+    # print(slide10)
+    slideMed51 = slideMedian(sample, 51)
+    slideMed111 = slideMedian(sample, 111)
     plt.figure()
     plt.title("Task 3")
-    plt.plot(sample, "o", color="black", label="sample")
+    plt.plot(sample, "o", color="gray", label="sample")
     plt.plot(model, label="model")
-    plt.plot(slideMed10, label="Slide median, m = 10")
-    plt.plot(slideMed25, label="Slide median, m = 25")
-    plt.plot(slideMed55, label="Slide median, m = 55")
+    plt.plot(slideMed21, label="Slide median, m = 21")
+    plt.plot(slideMed51, label="Slide median, m = 51")
+    plt.plot(slideMed111, label="Slide median, m = 111")
     plt.legend()
 
     # Task 4
@@ -138,11 +137,11 @@ if __name__ == "__main__":
     checkKandell(slide25, sample)
     print("Kandell for slide mean 55")
     checkKandell(slide55, sample)
-    print("Kandell for slide median 10\n")
-    checkKandell(slideMed10, sample)
-    print("Kandell for slide median 25\n")
-    checkKandell(slideMed25, sample)
-    print("Kandell for slide median 55")
-    checkKandell(slideMed55, sample)
+    print("Kandell for slide median 21\n")
+    checkKandell(slideMed21, sample)
+    print("Kandell for slide median 51\n")
+    checkKandell(slideMed51, sample)
+    print("Kandell for slide median 111")
+    checkKandell(slideMed111, sample)
 
     plt.show()
