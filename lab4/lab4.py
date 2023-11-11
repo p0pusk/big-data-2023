@@ -176,4 +176,4 @@ if __name__ == "__main__":
     ax.plot(data[0], c * data[0] ** H, color="deepskyblue")
     ax.scatter(data[0], data[1], color="purple")
     print(H)
-    plt.show()
+    # plt.show()
