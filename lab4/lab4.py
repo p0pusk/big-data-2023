@@ -39,13 +39,21 @@ def prony(x: np.array, T: float):
 # Function to generate sample
 # Return sample from task 1
 def generateSample():
-    return np.array([
-        sum([
-            (k * np.exp(-h * i / k) * np.cos(2 * np.pi * k * h * i + np.pi / 4.0))
-            for k in range(1, 4)
-        ])
-        for i in range(1, N + 1)
-    ])
+    return np.array(
+        [
+            sum(
+                [
+                    (
+                        k
+                        * np.exp(-h * i / k)
+                        * np.cos(2 * np.pi * k * h * i + np.pi / 4.0)
+                    )
+                    for k in range(1, 4)
+                ]
+            )
+            for i in range(1, N + 1)
+        ]
+    )
 
 
 # Function to calculate slide median points
@@ -105,7 +113,7 @@ if __name__ == "__main__":
     # Task 1
     print("Task 1: \n")
     sample = generateSample()
-    # print(sample)
+    print(sample)
     plt.figure()
     plt.title("Task 1")
     plt.plot(sample, "o", color="black", label="sample")
@@ -135,7 +143,7 @@ if __name__ == "__main__":
     plt.show()
 
     # Task 2
-    data_raw = pd.read_csv("./Lab4/LONDON.csv")
+    data_raw = pd.read_csv("~/polykek/big-data/lab4/LONDON.csv")
     # Give the variables some friendlier names and convert types as necessary.
     data_raw["mean_temp"] = data_raw["mean_temp"].astype(float)
 
@@ -176,4 +184,4 @@ if __name__ == "__main__":
     ax.plot(data[0], c * data[0] ** H, color="deepskyblue")
     ax.scatter(data[0], data[1], color="purple")
     print(H)
-    # plt.show()
+    plt.show()
